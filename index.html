@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversa</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Styles for the navigation bar */
+
+        @import url('https://fonts.googleapis.com/css2?family=Graphik&display=swap');
+
+        /* Applying the font to elements */
+        body {
+            margin: 0;
+          font-family: 'Graphik', sans-serif;
+        }
+      
+        .navbar {
+            background-color: #005454;
+            color: #FFC98A;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar ul li {
+            font-size: 18px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #FFC98A;
+            padding: 8px 11px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #434343;
+        }
+
+        /* Styles for the main content */
+        .main-content {
+            background-color: #005454; /* OpenAI blue color */
+            color: #FFC98A;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-content h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+        .main-content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .main-content img {
+            max-width: 107%;
+            height: auto;
+            width: 107%;
+        }
+        /* Styles for the quick links */
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+        }
+        .quick-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .main-content h1 {
+            font-size: 48px; /* Change this value to adjust the size */
+            margin-bottom: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .main-content .main-text {
+                order: 3;
+                text-align: center;
+            }
+            .main-content .image-container {
+                order: 1;
+                margin-bottom: 20px;
+            }
+            .video-carousel {
+                flex-direction: column;
+            }
+            .video-carousel a {
+                margin-right: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            
+        /* Styles for the content sections */
+       
+        }
+
+        .content-section {
+            padding: 40px;
+            background-color: #E0EBFF;
+            color: #0F3E99;
+        }
+        .content-section h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+        .content-section p {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content-section2 {
+            padding: 40px;
+            background-color: #800080;
+            color: #CFFFFF;
+        }
+        .content-section2 h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+        .content-section2 p {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+      
+        .feature {
+            flex-basis: calc(33.33% - 20px); /* Three columns with 20px spacing */
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: #fff; /* White background for columns */
+            color: #333; /* Text color for columns */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .plans-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .plan {
+            flex: 1 1 300px; /* Adjust width as needed */
+            padding: 30px;
+            text-align: center;
+            background-color: #fff; /* White background for plans */
+            color: #333; /* Text color for plans */
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Box shadow for effect */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .plan:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
+        .plan h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #0058A3; /* OpenAI blue color for headings */
+        }
+
+        .plan p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .plan ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .plan a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0058A3; /* OpenAI blue color for buttons */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .plan a:hover {
+            background-color: #003366; /* Darker shade on hover */
+        }
+
+        
+        img {
+            max-width: 100%; /* Ensure image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+            width: 100%; /* Increase the width of the image */
+        }
+        
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #005454; /* Button background color */
+            color: #FFC98A;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Hover effect */
+        a.button:hover {
+            background-color: #005454; /* Darker shade on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Research</a></li>
+           
+            <li><a href="#">Safety</a></li>
+           
+            <li><a href="#">Search</a></li>
+        </ul>
+        <div class="nav-quick-links">
+     
+            <a href="#">Try Conversa</a>
+          
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="main-text">
+            <h1>CONVERSA</h1>
+            <p>We’ve created an improved version of OpenAI Codex, our AI system that translates natural language to code, and we are releasing it through our API in private beta starting today.</p>
+            <a href="https://arcaii.github.io/Conversa/" class="button">Try Conversa</a>
+        </div>
+        <div class="image-container">
+            <img src="data-partnerships.png" alt="Quick links">
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+   
+
+      <!-- Additional content -->
+      <div class="content-section">
+        <h1>CONVERSA Can Teach</h1>
+        <p>Conversa is an AI-powered chat application designed to facilitate language learning. It operates by presenting users with questions, prompts, and quizzes in the language they aim to learn. The AI interacts with users by providing questions, explanations, and feedback based on their responses.
+
+           </p>
+
+           <div class="feature">
+            <img src="path/to/chat_with_images.jpg" alt="Chat with images">
+            <h2>Chat with Images</h2>
+            <p>You can now show ChatGPT images and start a chat. Troubleshoot why your grill won’t start, explore the contents of your fridge to plan a meal, or analyze a complex graph for work-related data.</p>
+            <a href="#">Learn more</a>
+        </div>
+        <div class="feature">
+            <img src="path/to/create_new_images.jpg" alt="Create new images">
+            <h2>DALL·E 3 - Create New Images</h2>
+            <p>Create images simply by describing them in ChatGPT. Invent new logos, comic strips, and photorealistic scenes right in the chat. You can bring your ideas to life with our most capable image model, DALL·E 3.</p>
+            <a href="#">Learn more</a>
+        </div>
+        <div class="feature">
+            <img src="path/to/chat_with_voice.jpg" alt="Chat with voice">
+            <h2>Chat with Voice</h2>
+            <p>You can now use voice to engage in a back-and-forth conversation with ChatGPT. Speak with it on the go, request a bedtime story for your family, or settle a dinner table debate.</p>
+            <a href="#">Learn more</a>
+        </div>
+        <!-- Add more content sections here -->
+    </div>
+    <img src="plan.png"></img>
+   
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>
